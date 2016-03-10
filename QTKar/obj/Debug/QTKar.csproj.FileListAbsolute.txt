@@ -1,0 +1,100 @@
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\QTKar.dll.config
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\QTKar.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\QTKar.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\Antlr3.Runtime.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\Kendo.Mvc.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\Microsoft.Web.Infrastructure.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\Newtonsoft.Json.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Helpers.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Mvc.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Optimization.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Razor.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.WebPages.Deployment.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.WebPages.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.WebPages.Razor.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\WebGrease.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\Antlr3.Runtime.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\Kendo.Mvc.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\Newtonsoft.Json.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Helpers.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Mvc.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Optimization.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.Razor.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.WebPages.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.WebPages.Deployment.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\System.Web.WebPages.Razor.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\bg-BG\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\cs-CZ\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\da-DK\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\de-DE\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\es-ES\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\fr-CA\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\fr-FR\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\it-IT\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\nl-NL\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\pl-PL\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\pt-BR\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\pt-PT\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\ro-RO\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\ru-RU\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\sv-SE\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\tr-TR\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\uk-UA\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\zh-CN\Kendo.Mvc.resources.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\obj\Debug\QTKar.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\obj\Debug\QTKar.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QTKar\QTKar\obj\Debug\QTKar.pdb
+C:\Users\Administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\EntityFramework.dll
+C:\Users\Administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\EntityFramework.xml
+C:\Users\Administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\EntityFramework.SqlServer.dll
+C:\Users\Administrator\documents\visual studio 2015\Projects\QTKar\QTKar\bin\EntityFramework.SqlServer.xml
+D:\MVCLearning\QTKar\QTKar\bin\QTKar.dll.config
+D:\MVCLearning\QTKar\QTKar\bin\QTKar.dll
+D:\MVCLearning\QTKar\QTKar\bin\QTKar.pdb
+D:\MVCLearning\QTKar\QTKar\bin\Antlr3.Runtime.dll
+D:\MVCLearning\QTKar\QTKar\bin\EntityFramework.dll
+D:\MVCLearning\QTKar\QTKar\bin\EntityFramework.SqlServer.dll
+D:\MVCLearning\QTKar\QTKar\bin\Kendo.Mvc.dll
+D:\MVCLearning\QTKar\QTKar\bin\Microsoft.Web.Infrastructure.dll
+D:\MVCLearning\QTKar\QTKar\bin\Newtonsoft.Json.dll
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Helpers.dll
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Mvc.dll
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Optimization.dll
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Razor.dll
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.WebPages.Deployment.dll
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.WebPages.dll
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.WebPages.Razor.dll
+D:\MVCLearning\QTKar\QTKar\bin\WebGrease.dll
+D:\MVCLearning\QTKar\QTKar\bin\Antlr3.Runtime.pdb
+D:\MVCLearning\QTKar\QTKar\bin\EntityFramework.xml
+D:\MVCLearning\QTKar\QTKar\bin\EntityFramework.SqlServer.xml
+D:\MVCLearning\QTKar\QTKar\bin\Kendo.Mvc.xml
+D:\MVCLearning\QTKar\QTKar\bin\Newtonsoft.Json.xml
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Helpers.xml
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Mvc.xml
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Optimization.xml
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.Razor.xml
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.WebPages.xml
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.WebPages.Deployment.xml
+D:\MVCLearning\QTKar\QTKar\bin\System.Web.WebPages.Razor.xml
+D:\MVCLearning\QTKar\QTKar\bin\bg-BG\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\cs-CZ\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\da-DK\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\de-DE\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\es-ES\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\fr-CA\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\fr-FR\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\it-IT\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\nl-NL\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\pl-PL\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\pt-BR\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\pt-PT\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\ro-RO\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\ru-RU\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\sv-SE\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\tr-TR\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\uk-UA\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\bin\zh-CN\Kendo.Mvc.resources.dll
+D:\MVCLearning\QTKar\QTKar\obj\Debug\QTKar.csprojResolveAssemblyReference.cache
+D:\MVCLearning\QTKar\QTKar\obj\Debug\QTKar.dll
+D:\MVCLearning\QTKar\QTKar\obj\Debug\QTKar.pdb

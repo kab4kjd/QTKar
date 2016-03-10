@@ -1,0 +1,72 @@
+﻿@using QTKar.Models;
+@model List<Phong>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Danh sach phong<br></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        @*Panel Phong*@
+        @{foreach (var p in Model)
+            {
+                <!-- Split button -->
+                <div class="btn-group">
+                    
+                    @Html.ActionLink(@p.TenPhong, "ChiTietPhong", "Phong",
+                     new { @p.MaPhong }, new { @class = "btn btn-default btn-lg" })
+                    <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    @if (p.TinhTrang == "open")
+                    { <ul class="dropdown-menu" role="menu">
+                          <li>
+                              <a href="@Url.Action("HuyPhong","Phong",new { p.MaPhong })">Hủy Phòng</a>
+                          </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">Tính tiền</a>
+                        </li>
+                    </ul>
+                    }
+                    else
+                    {
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="@Url.Action("MoPhong","Phong",new { p.MaPhong })">Mở Phòng</a>
+                            </li>
+                           
+                            @*<li class="divider"></li>*@
+                            @*<li>
+                                <a href="#">Tính tiền</a>
+                            </li>*@
+                        </ul>
+                    }
+                </div>
+
+
+
+            }
+        }
+    </div>
+</div>

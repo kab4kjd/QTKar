@@ -1,0 +1,105 @@
+﻿@using QTKar.Models;
+@model HoaDon
+
+@{
+    ViewBag.Title = "ChiTietPhong";
+    Layout = "~/Views/Shared/_LayoutHoaDon.cshtml";
+}
+
+<h2>ChiTietPhong</h2>
+
+@*PhongParital*@
+@Html.Action("PhongPartial", "Phong");
+
+@*Panel Hoa Don*@
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Hoa Don</h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+
+
+
+    <div class="x_content" style="display: block;">
+        <span class="label label-default">Ma Phong: @Model.MaPhong</span>
+        <br />
+        Gio vao: @(Html.Kendo().TimePicker()
+        .Name("Giovao")
+        .Value(Model.GioVao))
+        @*.Events(e =>
+        {
+        e.Change("change").Open("open").Close("close");
+        }))
+        <script>   
+
+    function change() {
+        //kendoConsole.log("Change :: " + kendo.toString(this.value(), 'g'));
+        alert(this.value());
+    }
+        </script>*@
+
+@(Html.Kendo().Grid<QTKar.Models.ChiTietHoaDonViewModel>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.SanPham.TenHang);
+        columns.Bound(p => p.SoLuong).Width(120);
+        columns.Bound(p => p.ThanhTien).Width(120);        
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+    })
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.MaChiTietHoaDon))
+        .Create(update => update.Action("EditingPopup_Create", "Grid"))
+        .Read(read => read.Action("EditingPopup_Read", "Grid"))
+        .Update(update => update.Action("EditingPopup_Update", "Grid"))
+        .Destroy(update => update.Action("EditingPopup_Destroy", "Grid"))
+    )
+)
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>
+
+
+
+    </div>
+</div>

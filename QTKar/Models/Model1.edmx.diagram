@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7febe2f32ffb47dcb00be710221699bb" Name="Diagram1">
+        <EntityTypeShape EntityType="KaraokeDBModel.ChiTietHoaDon" Width="1.5" PointX="5.375" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaraokeDBModel.HoaDon" Width="1.5" PointX="3.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaraokeDBModel.Khach" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaraokeDBModel.NhanVien" Width="1.5" PointX="0.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaraokeDBModel.Nhom" Width="1.5" PointX="7.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaraokeDBModel.Phong" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaraokeDBModel.SanPham" Width="1.5" PointX="7.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KaraokeDBModel.sysdiagram" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="KaraokeDBModel.FK_ChiTietHoaDon_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="KaraokeDBModel.FK_ChiTietHoaDon_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="KaraokeDBModel.FK_HoaDon_Khach" ManuallyRouted="false" />
+        <AssociationConnector Association="KaraokeDBModel.FK_HoaDon_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="KaraokeDBModel.FK_HoaDon_Phong" ManuallyRouted="false" />
+        <AssociationConnector Association="KaraokeDBModel.FK_SanPham_Nhom" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

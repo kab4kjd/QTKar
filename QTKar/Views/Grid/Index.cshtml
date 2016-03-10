@@ -1,0 +1,14 @@
+﻿
+@(Html.Kendo().Grid<QTKar.Models.ChiTietHoaDon>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.SoLuong);
+        columns.Bound(c => c.ThanhTien);
+      })
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Read(read => read.Action("ChiTietHoaDons_Read", "Grid"))
+      )
+)

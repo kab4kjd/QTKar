@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+
+}
+@(Html.Kendo().Grid<QTKar.Models.SanPham>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.TenHang);
+          columns.Bound(c => c.GiaBan);
+          
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Scrollable()      
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .ServerOperation(false)
+          .Model(model => model.Id(p => p.TenHang))
+          .Read(read => read.Action("SanPhams_Read", "TestSanPham"))
+          .Create(create => create.Action("SanPhams_Create", "TestSanPham"))
+          .Update(update => update.Action("SanPhams_Update", "TestSanPham"))
+          .Destroy(destroy => destroy.Action("SanPhams_Destroy", "TestSanPham"))
+      )
+)
