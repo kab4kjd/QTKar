@@ -128,7 +128,7 @@
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\ChiTietHoaDonController.cs" />
     <Compile Include="Controllers\PhongController.cs" />
-    <Compile Include="Controllers\ProductService.cs" />
+    <Compile Include="Models\ProductService.cs" />
     <Compile Include="Controllers\TestSanPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1599,6 +1599,7 @@
     <Content Include="Views\Phong\PhongPartial.cshtml" />
     <Content Include="Views\Phong\ChiTietPhong.cshtml" />
     <Content Include="Views\Grid\Index.cshtml" />
+    <Content Include="Views\Grid\GridChiTietHoaDonPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
