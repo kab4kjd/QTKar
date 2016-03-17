@@ -119,17 +119,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\SanPhamController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietHoaDonController.cs" />
     <Compile Include="Controllers\GridController.cs" />
-    <Compile Include="Controllers\HoaDonController.cs" />
     <Compile Include="Controllers\HoaDonsController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
-    <Compile Include="Controllers\ChiTietHoaDonController.cs" />
     <Compile Include="Controllers\PhongController.cs" />
     <Compile Include="Models\ProductService.cs" />
-    <Compile Include="Controllers\TestSanPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1590,7 +1589,6 @@
     <Content Include="TemplateLayout\js\maps\us-unemployment.json" />
     <Content Include="TemplateLayout\css\datatables\images\Sorting icons.psd" />
     <Content Include="Views\Shared\_LayoutHoaDon.cshtml" />
-    <Content Include="Views\TestSanPham\TestSanPham.cshtml" />
     <Content Include="Views\HoaDons\Create.cshtml" />
     <Content Include="Views\HoaDons\Delete.cshtml" />
     <Content Include="Views\HoaDons\Details.cshtml" />
@@ -1600,6 +1598,9 @@
     <Content Include="Views\Phong\ChiTietPhong.cshtml" />
     <Content Include="Views\Grid\Index.cshtml" />
     <Content Include="Views\Grid\GridChiTietHoaDonPartial.cshtml" />
+    <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\NhomEditor.cshtml" />
+    <Content Include="Views\ChiTietHoaDon\GridChiTietHoaDonPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

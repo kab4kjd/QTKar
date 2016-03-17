@@ -1,0 +1,47 @@
+﻿@using QTKar.Models
+@model IQueryable<ChiTietHoaDon>
+
+@foreach (var item in Model)
+{
+    <br />
+    @item.SanPham.TenHang 
+    @item.SanPham.GiaBan
+    @item.SoLuong
+    <br />
+}
+@Html.Kendo().Grid(Model).Name("Grid").Columns(columns => { columns.Bound(c => c.SanPham.TenHang);columns.Bound(c => c.SoLuong);columns.Bound(c => c.SanPham.GiaBan); })
+
+
+@*@(Html.Kendo().Grid(Model)
+      .Name("grid")
+      //.BindTo(Model)
+      .Columns(columns =>
+      {
+          //columns.Bound(c => c.SanPham.TenHang);
+          //columns.Bound(c => c.SanPham.GiaBan);
+          columns.Bound(c => c.SoLuong);
+          columns.Bound(c => c.ThanhTien);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.MaChiTietHoaDon))
+          //.Read(read => read.Action("ChiTietHoaDons_Read", "ChiTietHoaDon"))
+          .Create(create => create.Action("ChiTietHoaDons_Create", "ChiTietHoaDon"))
+          .Update(update => update.Action("ChiTietHoaDons_Update", "ChiTietHoaDon"))
+          .Destroy(destroy => destroy.Action("ChiTietHoaDons_Destroy", "ChiTietHoaDon"))
+      )
+)*@
+

@@ -14,7 +14,7 @@
 @*Panel Hoa Don*@
 <div class="x_panel">
     <div class="x_title">
-        <h2>Hoa Don</h2>
+        <h2>Hoa Don @Model.Phong.TenPhong</h2>
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -39,7 +39,7 @@
 
         <div class="x_content" style="display: block;">
 
-        <span class="label label-default">Ma Phong: @Model.MaPhong</span>
+      
         <br />
         Gio vao: @(Html.Kendo().TimePicker()
         .Name("Giovao")
@@ -56,8 +56,8 @@
     }
         </script>*@
 
-        @ViewBag.mahoadon=@Model.MaHoaDon
-@Html.Action("GridChiTietHoaDonPartial", "Grid",11);
+        
+@Html.Action("GridChiTietHoaDonPartial", "ChiTietHoaDon", new { maHoaDon = Model.MaHoaDon });
 
             
     </div>

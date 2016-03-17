@@ -10,13 +10,13 @@ using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using QTKar.Models;
 
-namespace QTKar.Controllers
+namespace QTKar.Admin
 {
-    public class TestSanPhamController : Controller
+    public class SanPhamController : Controller
     {
         private KaraokeDBEntities2 db = new KaraokeDBEntities2();
 
-        public ActionResult TestSanPham()
+        public ActionResult Index()
         {
             return View();
         }
@@ -25,26 +25,30 @@ namespace QTKar.Controllers
         {
             IQueryable<SanPham> sanphams = db.SanPhams;
             DataSourceResult result = sanphams.ToDataSourceResult(request, sanPham => new {
+                MaHang = sanPham.MaHang,
                 TenHang = sanPham.TenHang,
                 GiaBan = sanPham.GiaBan,
             });
 
-            return Json(result,JsonRequestBehavior.AllowGet);
+            return Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult SanPhams_Create([DataSourceRequest]DataSourceRequest request, SanPham sanPham)
         {
+           
+            
             if (ModelState.IsValid)
             {
                 var entity = new SanPham
                 {
+                    TenHang = sanPham.TenHang,
                     GiaBan = sanPham.GiaBan,
                 };
 
                 db.SanPhams.Add(entity);
                 db.SaveChanges();
-                sanPham.TenHang = entity.TenHang;
+                sanPham.MaHang = entity.MaHang;
             }
 
             return Json(new[] { sanPham }.ToDataSourceResult(request, ModelState));
@@ -57,6 +61,7 @@ namespace QTKar.Controllers
             {
                 var entity = new SanPham
                 {
+                    MaHang = sanPham.MaHang,
                     TenHang = sanPham.TenHang,
                     GiaBan = sanPham.GiaBan,
                 };
@@ -76,6 +81,7 @@ namespace QTKar.Controllers
             {
                 var entity = new SanPham
                 {
+                    MaHang = sanPham.MaHang,
                     TenHang = sanPham.TenHang,
                     GiaBan = sanPham.GiaBan,
                 };

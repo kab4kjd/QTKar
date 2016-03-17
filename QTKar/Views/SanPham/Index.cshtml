@@ -1,0 +1,36 @@
+﻿
+@(Html.Kendo().Grid<QTKar.Models.SanPham>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.TenHang);
+          columns.Bound(c => c.GiaBan);     
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.MaHang))
+          .Read(read => read.Action("SanPhams_Read", "SanPham"))
+          .Aggregates(aggregates =>
+          {
+              //aggregates.Add(product => product.UnitsInStock).Min().Max().Count();
+              //aggregates.Add(product => product.UnitsOnOrder).Average();
+              //aggregates.Add(product => product.ProductName).Count();
+              aggregates.Add(product => product.GiaBan).Sum();
+          })
+          .Create(create => create.Action("SanPhams_Create", "SanPham"))
+          .Update(update => update.Action("SanPhams_Update", "SanPham"))
+          .Destroy(destroy => destroy.Action("SanPhams_Destroy", "SanPham"))
+      )
+)

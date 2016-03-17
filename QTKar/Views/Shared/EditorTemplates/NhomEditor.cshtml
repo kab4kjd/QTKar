@@ -1,0 +1,6 @@
+﻿@(Html.Kendo().DropDownList()
+    .Name("Nhom")
+    .DataValueField("MaNhom")
+    .DataTextField("TenNhom")
+    .BindTo((System.Collections.IEnumerable)ViewBag["nhoms"])
+    )

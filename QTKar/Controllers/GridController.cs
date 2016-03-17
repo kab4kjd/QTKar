@@ -26,23 +26,50 @@ namespace QTKar.Controllers
             {
                 ChiTietHoaDonViewModel ctvm = new ChiTietHoaDonViewModel();
                 ctvm.MaHoaDon = item.MaHoaDon;
-                ctvm.SanPham = item.SanPham;
+                ctvm.TenSanPham = item.SanPham.TenHang;
+                ctvm.GiaSanPham = (int)item.SanPham.GiaBan;
                 ctvm.SoLuong = item.SoLuong;
                 ctvm.ThanhTien = item.ThanhTien;
                 chitietvm.Add(ctvm);
             }
 
             return PartialView(chitietvm);
+            
         }
-        public ActionResult EditingPopup_Read([DataSourceRequest] DataSourceRequest request)
-        {
-            ProductService ps = new ProductService(db);
-            return Json(ps.Read(ViewBag.mahoadon).ToDataSourceResult(request));
-        }
+        //public ActionResult EditingPopup_Read([DataSourceRequest] DataSourceRequest request)
+        //{
+        //    ProductService ps = new ProductService(db);
+        //    return Json(ps.Read(ViewBag.mahoadon).ToDataSourceResult(request));
+        //}
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditingPopup_Create([DataSourceRequest] DataSourceRequest request, ChiTietHoaDonViewModel product)
-        {
+        {                     
+            //if (ModelState.IsValid)
+            //{
+            //    var entity = new SanPham
+            //    {
+            //        TenHang = sanPham.TenHang,
+            //        GiaBan = sanPham.GiaBan,
+            //    };
+
+            //    db.SanPhams.Add(entity);
+            //    db.SaveChanges();
+            //    sanPham.MaHang = entity.MaHang;
+            //}
+
+            //return Json(new[] { sanPham }.ToDataSourceResult(request, ModelState));
+
+            //var entity = new ChiTietHoaDon();
+
+            //entity.MaHoaDon = ct.MaHoaDon;
+            //entity.SoLuong = ct.SoLuong;
+            //entity.ThanhTien = ct.ThanhTien;
+            //entity.MaHang = Int32.Parse(entities.SanPhams.Where(s => s.TenHang == ct.TenSanPham).Single().ToString());
+            
+            //entities.ChiTietHoaDons.Add(entity);
+            //entities.SaveChanges();
+
             ProductService ps = new ProductService(db);
             if (product != null && ModelState.IsValid)
             {
@@ -50,11 +77,13 @@ namespace QTKar.Controllers
             }
 
             return Json(new[] { product }.ToDataSourceResult(request, ModelState));
+
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditingPopup_Update([DataSourceRequest] DataSourceRequest request, ChiTietHoaDonViewModel product)
         {
+          
             ProductService ps = new ProductService(db);
             if (product != null && ModelState.IsValid)
             {
