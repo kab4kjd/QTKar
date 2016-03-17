@@ -37,9 +37,8 @@
         <div class="clearfix"></div>
     </div>
 
+        <div class="x_content" style="display: block;">
 
-
-    <div class="x_content" style="display: block;">
         <span class="label label-default">Ma Phong: @Model.MaPhong</span>
         <br />
         Gio vao: @(Html.Kendo().TimePicker()
@@ -57,49 +56,9 @@
     }
         </script>*@
 
-@(Html.Kendo().Grid<QTKar.Models.ChiTietHoaDonViewModel>()
-    .Name("grid")
-    .Columns(columns =>
-    {
-        columns.Bound(p => p.SanPham.TenHang);
-        columns.Bound(p => p.SoLuong).Width(120);
-        columns.Bound(p => p.ThanhTien).Width(120);        
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
-    })
-    .ToolBar(toolbar => toolbar.Create())
-    .Editable(editable => editable.Mode(GridEditMode.PopUp))
-    .Pageable()
-    .Sortable()
-    .Scrollable()
-    .HtmlAttributes(new { style = "height:550px;" })
-    .DataSource(dataSource => dataSource
-        .Ajax()
-        .PageSize(20)
-        .Events(events => events.Error("error_handler"))
-        .Model(model => model.Id(p => p.MaChiTietHoaDon))
-        .Create(update => update.Action("EditingPopup_Create", "Grid"))
-        .Read(read => read.Action("EditingPopup_Read", "Grid"))
-        .Update(update => update.Action("EditingPopup_Update", "Grid"))
-        .Destroy(update => update.Action("EditingPopup_Destroy", "Grid"))
-    )
-)
-<script type="text/javascript">
-    function error_handler(e) {
-        if (e.errors) {
-            var message = "Errors:\n";
-            $.each(e.errors, function (key, value) {
-                if ('errors' in value) {
-                    $.each(value.errors, function () {
-                        message += this + "\n";
-                    });
-                }
-            });
-            alert(message);
-        }
-    }
-</script>
+        @ViewBag.mahoadon=@Model.MaHoaDon
+@Html.Action("GridChiTietHoaDonPartial", "Grid",11);
 
-
-
+            
     </div>
 </div>

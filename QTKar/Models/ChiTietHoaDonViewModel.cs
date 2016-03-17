@@ -8,7 +8,7 @@ namespace QTKar.Models
     public class ChiTietHoaDonViewModel
     {
         public int MaChiTietHoaDon { get; set; }
-        public int MaHoaDon { get; }
+        public int MaHoaDon { get; set; }
      
         public SanPham SanPham { get; set; }
 

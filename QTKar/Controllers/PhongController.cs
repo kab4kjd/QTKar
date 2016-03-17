@@ -16,9 +16,9 @@ namespace QTKar.Controllers
 
 
         KaraokeDBEntities2 db = new KaraokeDBEntities2();
-        
-      
 
+
+      
         public PartialViewResult PhongPartial()
         {
             return PartialView(db.Phongs.ToList());
