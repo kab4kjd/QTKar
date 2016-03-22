@@ -20,20 +20,25 @@ namespace QTKar.Controllers
         {
             return View();
         }
-        public PartialViewResult GridChiTietHoaDonPartial(int maHoaDon)
-        {
-            //List<ChiTietHoaDon> chitiethoadons= db.ChiTietHoaDons.Where(ct => ct.MaHoaDon == maHoaDon).ToList();
-            //return PartialView(chitiethoadons);
 
-          IQueryable<ChiTietHoaDon> chitiethoadons = db.ChiTietHoaDons.Where(ct => ct.MaHoaDon == maHoaDon);
-            return PartialView(chitiethoadons);
+        //public PartialViewResult GridChiTietHoaDonPartial(int maHoaDon)
+        //{
+        //    //List<ChiTietHoaDon> chitiethoadons= db.ChiTietHoaDons.Where(ct => ct.MaHoaDon == maHoaDon).ToList();
+        //    //return PartialView(chitiethoadons);
 
-        }
-        public ActionResult ChiTietHoaDons_Read([DataSourceRequest]DataSourceRequest request)
+        //  IQueryable<ChiTietHoaDon> chitiethoadons = db.ChiTietHoaDons.Where(ct => ct.MaHoaDon == maHoaDon);
+        //    return PartialView(chitiethoadons);
+
+        //}
+        public ActionResult ChiTietHoaDons_Read([DataSourceRequest]DataSourceRequest request,int maHoaDon)
         {
             IQueryable<ChiTietHoaDon> chitiethoadons = db.ChiTietHoaDons;
-            DataSourceResult result = chitiethoadons.ToDataSourceResult(request, chiTietHoaDon => new {
+            DataSourceResult result = chitiethoadons.Where(ct=>ct.MaHoaDon==maHoaDon).ToDataSourceResult(request, chiTietHoaDon => new
+            {
                 MaChiTietHoaDon = chiTietHoaDon.MaChiTietHoaDon,
+                MaHoaDon=maHoaDon,
+                MaHang = chiTietHoaDon.MaHang,
+                TenHang=chiTietHoaDon.SanPham.TenHang,
                 SoLuong = chiTietHoaDon.SoLuong,
                 ThanhTien = chiTietHoaDon.ThanhTien,
             });
@@ -48,10 +53,11 @@ namespace QTKar.Controllers
             {
                 var entity = new ChiTietHoaDon
                 {
+                    MaChiTietHoaDon =chiTietHoaDon.MaChiTietHoaDon,
                     MaHoaDon=chiTietHoaDon.MaHoaDon,
                     MaHang =chiTietHoaDon.MaHang,
                     SoLuong = chiTietHoaDon.SoLuong,
-                    //ThanhTien = chiTietHoaDon.ThanhTien,
+                    ThanhTien = chiTietHoaDon.SanPham.GiaBan*chiTietHoaDon.SoLuong,
                 };
 
                 db.ChiTietHoaDons.Add(entity);
@@ -69,11 +75,11 @@ namespace QTKar.Controllers
             {
                 var entity = new ChiTietHoaDon
                 {
-                    MaHoaDon = chiTietHoaDon.MaHoaDon,
-                    MaHang = chiTietHoaDon.MaHang,
                     MaChiTietHoaDon = chiTietHoaDon.MaChiTietHoaDon,
+                    MaHoaDon = chiTietHoaDon.MaHoaDon,
+                    MaHang = chiTietHoaDon.MaHang,                   
                     SoLuong = chiTietHoaDon.SoLuong,
-                    //ThanhTien = chiTietHoaDon.ThanhTien,
+                    ThanhTien = chiTietHoaDon.SanPham.GiaBan*chiTietHoaDon.SoLuong,
                 };
 
                 db.ChiTietHoaDons.Attach(entity);
@@ -91,9 +97,9 @@ namespace QTKar.Controllers
             {
                 var entity = new ChiTietHoaDon
                 {
-                    MaHoaDon = chiTietHoaDon.MaHoaDon,
-                    MaHang = chiTietHoaDon.MaHang,
                     MaChiTietHoaDon = chiTietHoaDon.MaChiTietHoaDon,
+                    MaHoaDon = chiTietHoaDon.MaHoaDon,
+                    MaHang = chiTietHoaDon.MaHang,                    
                     SoLuong = chiTietHoaDon.SoLuong,
                     //ThanhTien = chiTietHoaDon.ThanhTien,
                 };

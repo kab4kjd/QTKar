@@ -9,7 +9,22 @@
     @item.SoLuong
     <br />
 }
-@Html.Kendo().Grid(Model).Name("Grid").Columns(columns => { columns.Bound(c => c.SanPham.TenHang);columns.Bound(c => c.SoLuong);columns.Bound(c => c.SanPham.GiaBan); })
+@Html.Kendo().Grid(Model).Name("Grid").Columns(columns =>
+{
+    columns.Bound(c => c.SanPham.TenHang);
+    columns.Bound(c => c.SoLuong);
+    columns.Bound(c => c.SanPham.GiaBan);
+    columns.Bound(c => c.ThanhTien);
+    columns.Command(command => { command.Edit(); command.Destroy(); });
+}).ToolBar(toolbar =>
+{
+    toolbar.Create();
+}).DataSource(dataSource => dataSource
+.Ajax()
+.Model(model => model.Id(p => p.MaChiTietHoaDon))
+.Create(create => create.Action("ChiTietHoaDons_Create", "ChiTietHoaDon"))
+.Update(update => update.Action("ChiTietHoaDons_Update", "ChiTietHoaDon"))
+.Destroy(destroy => destroy.Action("ChiTietHoaDons_Destroy", "ChiTietHoaDon")))
 
 
 @*@(Html.Kendo().Grid(Model)

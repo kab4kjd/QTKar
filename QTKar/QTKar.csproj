@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\SanPhamController.cs" />
+    <Compile Include="Admin\SanPhamsMVCController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -1601,6 +1602,11 @@
     <Content Include="Views\SanPham\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\NhomEditor.cshtml" />
     <Content Include="Views\ChiTietHoaDon\GridChiTietHoaDonPartial.cshtml" />
+    <Content Include="Views\SanPhamsMVC\Create.cshtml" />
+    <Content Include="Views\SanPhamsMVC\Delete.cshtml" />
+    <Content Include="Views\SanPhamsMVC\Details.cshtml" />
+    <Content Include="Views\SanPhamsMVC\Edit.cshtml" />
+    <Content Include="Views\SanPhamsMVC\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

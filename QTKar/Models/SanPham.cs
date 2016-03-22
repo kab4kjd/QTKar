@@ -11,6 +11,7 @@ namespace QTKar.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,6 +21,7 @@ namespace QTKar.Models
         }
     
         public int MaHang { get; set; }
+        //[UIHint("NhomEditor")]
         public string MaNhom { get; set; }
         public string TenHang { get; set; }
         public Nullable<int> GiaBan { get; set; }

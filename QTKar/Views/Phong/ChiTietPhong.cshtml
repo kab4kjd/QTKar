@@ -41,24 +41,52 @@
 
       
         <br />
-        Gio vao: @(Html.Kendo().TimePicker()
-        .Name("Giovao")
-        .Value(Model.GioVao))
-        @*.Events(e =>
-        {
-        e.Change("change").Open("open").Close("close");
-        }))
+        Gio vao: @(Html.Kendo().TimePicker().Name("Giovao").Value(Model.GioVao).Events(e => e.Change("change")))        
         <script>   
 
     function change() {
         //kendoConsole.log("Change :: " + kendo.toString(this.value(), 'g'));
-        alert(this.value());
+        //alert(this.value());
+        //$.ajax({})
     }
-        </script>*@
+        </script>
 
         
-@Html.Action("GridChiTietHoaDonPartial", "ChiTietHoaDon", new { maHoaDon = Model.MaHoaDon });
+@*@Html.Action("GridChiTietHoaDonPartial", "ChiTietHoaDon", new { maHoaDon = Model.MaHoaDon });*@
 
             
+@(Html.Kendo().Grid<ChiTietHoaDon>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.MaHang);
+          columns.Bound(c => c.MaHoaDon);
+          //columns.Bound(c => c.SanPham.GiaBan);
+          columns.Bound(c => c.SoLuong);
+          columns.Bound(c => c.ThanhTien);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create().Text(" Create New");
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.MaChiTietHoaDon))
+          .Read(read => read.Action("ChiTietHoaDons_Read", "ChiTietHoaDon", new { maHoaDon = Model.MaHoaDon }))
+          .Create(create => create.Action("ChiTietHoaDons_Create", "ChiTietHoaDon"))
+          .Update(update => update.Action("ChiTietHoaDons_Update", "ChiTietHoaDon"))
+          .Destroy(destroy => destroy.Action("ChiTietHoaDons_Destroy", "ChiTietHoaDon"))
+      )
+)
+
     </div>
 </div>

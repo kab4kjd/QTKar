@@ -50,7 +50,7 @@ namespace QTKar.Controllers
 
             entity.MaHoaDon = ct.MaHoaDon;
             entity.SoLuong = ct.SoLuong;
-            entity.ThanhTien = ct.ThanhTien;
+            //entity.ThanhTien = ct.ThanhTien;
             entity.MaHang =Int32.Parse(entities.SanPhams.Where(s=>s.TenHang==ct.TenSanPham).Single().ToString());            
 
             //if (entity.CategoryID == null)
@@ -73,7 +73,7 @@ namespace QTKar.Controllers
 
             entity.MaHoaDon = ct.MaHoaDon;
             entity.SoLuong = ct.SoLuong;
-            entity.ThanhTien = ct.ThanhTien;
+            //entity.ThanhTien = ct.ThanhTien;
             //entity.MaHang = ct.SanPham.MaHang;
             
 

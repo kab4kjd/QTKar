@@ -17,31 +17,43 @@ namespace QTKar.Admin
         private KaraokeDBEntities2 db = new KaraokeDBEntities2();
 
         public ActionResult Index()
-        {
+        {            
             return View();
         }
 
         public ActionResult SanPhams_Read([DataSourceRequest]DataSourceRequest request)
         {
+            //ViewData["nhoms"] =
+            //        db.Nhoms
+            //        .Select(e => new Nhom
+            //        {
+            //            MaNhom = e.MaNhom,
+            //            TenNhom = e.TenNhom
+            //        })
+            //        .OrderBy(e => e.MaNhom);
+            ViewData["MaNhom"] = new SelectList(db.Nhoms, "MaNhom", "TenNhom");
             IQueryable<SanPham> sanphams = db.SanPhams;
             DataSourceResult result = sanphams.ToDataSourceResult(request, sanPham => new {
                 MaHang = sanPham.MaHang,
+                MaNhom =sanPham.MaNhom,                
                 TenHang = sanPham.TenHang,
                 GiaBan = sanPham.GiaBan,
             });
 
             return Json(result);
         }
-
+        
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult SanPhams_Create([DataSourceRequest]DataSourceRequest request, SanPham sanPham)
         {
-           
             
+
             if (ModelState.IsValid)
             {
                 var entity = new SanPham
                 {
+                    MaHang = sanPham.MaHang,
+                    MaNhom = sanPham.MaNhom,
                     TenHang = sanPham.TenHang,
                     GiaBan = sanPham.GiaBan,
                 };
@@ -50,7 +62,7 @@ namespace QTKar.Admin
                 db.SaveChanges();
                 sanPham.MaHang = entity.MaHang;
             }
-
+            ViewBag.MaNhom = new SelectList(db.Nhoms, "MaNhom", "TenNhom", sanPham.MaNhom);
             return Json(new[] { sanPham }.ToDataSourceResult(request, ModelState));
         }
 
@@ -62,6 +74,7 @@ namespace QTKar.Admin
                 var entity = new SanPham
                 {
                     MaHang = sanPham.MaHang,
+                    MaNhom = sanPham.MaNhom,
                     TenHang = sanPham.TenHang,
                     GiaBan = sanPham.GiaBan,
                 };
@@ -82,6 +95,7 @@ namespace QTKar.Admin
                 var entity = new SanPham
                 {
                     MaHang = sanPham.MaHang,
+                    MaNhom = sanPham.MaNhom,
                     TenHang = sanPham.TenHang,
                     GiaBan = sanPham.GiaBan,
                 };
