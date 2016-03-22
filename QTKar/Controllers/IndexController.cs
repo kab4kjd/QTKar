@@ -16,23 +16,7 @@ namespace QTKar.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-        //public ActionResult Create([DataSourceRequest] DataSourceRequest request, HoaDon bill)
-        //{
-        //    if (bill != null && ModelState.IsValid)
-        //    {
-        //        ProductService.Create(bill);
-        //    }
-
-        //    return Json(new[] { bill }.ToDataSourceResult(request, ModelState));
-        //}
-
-        //public ActionResult Index(string tenPhong)
-        //{
-        //    //if (Session[tenPhong] == null) Session[tenPhong] = PhongSession;
-
-        //    return View();
-        //}
+        }     
 
     }
 }

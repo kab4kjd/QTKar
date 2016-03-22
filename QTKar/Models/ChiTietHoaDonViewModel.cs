@@ -9,11 +9,10 @@ namespace QTKar.Models
     {
         public int MaChiTietHoaDon { get; set; }
         public int MaHoaDon { get; set; }
-     
-        public SanPham SanPham { get; set; }
 
-
-               
+        public string TenSanPham { get; set; }
+        public int GiaSanPham { get; set; }
+                      
         public Nullable<int> SoLuong { get; set; }
         public Nullable<int> ThanhTien { get; set; }
 
