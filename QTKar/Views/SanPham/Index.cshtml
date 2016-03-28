@@ -4,15 +4,34 @@
       .Columns(columns =>
       {
           columns.Bound(c => c.MaHang).Width(50);
-          columns.Bound(c => c.MaNhom).ClientTemplate("#=MaNhom.TenNhom#");
+          columns.Bound(c => c.MaNhom)/*.ClientTemplate("#=MaNhom.TenNhom#")*/;
           columns.Bound(c => c.TenHang);
           columns.Bound(c => c.GiaBan);
           columns.Command(command => command.Destroy());
       })
       .ToolBar(toolbar =>
       {
-          toolbar.Create();
-          toolbar.Save();
+      toolbar.Create();
+      //toolbar.Save();
+      toolbar.Template(@<text>
+        <div class="toolbar">
+            <label class="category-label" for="category">Show products by category:</label>
+            @(Html.Kendo().DropDownList()
+                            .Name("Nhoms")
+                            .OptionLabel(" Tất Cả")
+                            .DataTextField("TenNhom")
+                            .DataValueField("MaNhom")
+                            .AutoBind(false)
+                            .Events(e => e.Change("nhomsChange"))
+                            .HtmlAttributes(new { style = "width: 150px;" })
+                            .DataSource(ds =>
+                            {
+                                ds.Read("ToolbarTemplate_Nhoms", "SanPham");
+                            })
+            )
+        </div>
+        </text>);
+
       })
       .Editable(editable => editable.Mode(GridEditMode.InCell))
       .Selectable(selectable =>
@@ -25,7 +44,7 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Batch(true)
-          .ServerOperation(false)
+          .ServerOperation(true)
           .Model(model =>
           {
               model.Id(p => p.MaHang);
@@ -41,9 +60,40 @@
               //aggregates.Add(product => product.ProductName).Count();
               aggregates.Add(product => product.GiaBan).Sum();
           })
-          .Create(create => create.Action("SanPhams_Create", "SanPham"))
-          .Update(update => update.Action("SanPhams_Update", "SanPham"))
-          .Destroy(destroy => destroy.Action("SanPhams_Destroy", "SanPham"))
+          .Create("SanPhams_Create", "SanPham")
+          .Update("SanPhams_Update", "SanPham")
+          .Destroy("SanPhams_Destroy", "SanPham")
       )
 )
+<script>
+    function nhomsChange() {
+        var value = this.value(),
+		 	 grid = $("#grid").data("kendoGrid");
+
+        if (value) {
+            grid.dataSource.filter({ field: "MaNhom", operator: "eq", value: value });
+        } else {
+            grid.dataSource.filter({});
+        }
+    }
+</script>
+
+@*<style>
+    #grid .k-grid-toolbar {
+        padding: .6em 1.3em;
+    }
+
+    .category-label {
+        vertical-align: middle;
+        padding-right: .5em;
+    }
+
+    #category {
+        vertical-align: middle;
+    }
+
+    .toolbar {
+        float: left;
+    }
+</style>*@
 

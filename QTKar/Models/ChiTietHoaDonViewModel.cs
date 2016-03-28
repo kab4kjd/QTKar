@@ -9,12 +9,13 @@ namespace QTKar.Models
     {
         public int MaChiTietHoaDon { get; set; }
         public int MaHoaDon { get; set; }
+        public SanPham sanpham { get; set; }
 
-        public string TenSanPham { get; set; }
-        public int GiaSanPham { get; set; }
+        //public string TenHang { get; set; }
+        //public int GiaHang{ get; set; }
                       
-        public Nullable<int> SoLuong { get; set; }
-        public Nullable<int> ThanhTien { get; set; }
+        public int SoLuong { get; set; }
+        public int ThanhTien { get; set; }
 
         //public virtual Phong Phong { get; set; }
         //public virtual Khach Khach { get; set; }

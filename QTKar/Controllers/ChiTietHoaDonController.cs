@@ -32,13 +32,15 @@ namespace QTKar.Controllers
         //}
         public ActionResult ChiTietHoaDons_Read([DataSourceRequest]DataSourceRequest request,int maHoaDon)
         {
-            IQueryable<ChiTietHoaDon> chitiethoadons = db.ChiTietHoaDons;
-            DataSourceResult result = chitiethoadons.Where(ct=>ct.MaHoaDon==maHoaDon).ToDataSourceResult(request, chiTietHoaDon => new
+            IQueryable<ChiTietHoaDon> chitiethoadons = db.ChiTietHoaDons.Where(ct => ct.MaHoaDon == maHoaDon);
+            DataSourceResult result = chitiethoadons.ToDataSourceResult(request, chiTietHoaDon => new
             {
                 MaChiTietHoaDon = chiTietHoaDon.MaChiTietHoaDon,
                 MaHoaDon=maHoaDon,
                 MaHang = chiTietHoaDon.MaHang,
-                TenHang=chiTietHoaDon.SanPham.TenHang,
+                TenHang = chiTietHoaDon.SanPham.TenHang,
+                GiaHang = chiTietHoaDon.SanPham.GiaBan,
+                //sanpham =chiTietHoaDon
                 SoLuong = chiTietHoaDon.SoLuong,
                 ThanhTien = chiTietHoaDon.ThanhTien,
             });
@@ -47,7 +49,7 @@ namespace QTKar.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult ChiTietHoaDons_Create([DataSourceRequest]DataSourceRequest request, ChiTietHoaDon chiTietHoaDon)
+        public ActionResult ChiTietHoaDons_Create([DataSourceRequest]DataSourceRequest request, ChiTietHoaDonViewModel chiTietHoaDon)
         {
             if (ModelState.IsValid)
             {
@@ -55,9 +57,9 @@ namespace QTKar.Controllers
                 {
                     MaChiTietHoaDon =chiTietHoaDon.MaChiTietHoaDon,
                     MaHoaDon=chiTietHoaDon.MaHoaDon,
-                    MaHang =chiTietHoaDon.MaHang,
+                    MaHang =chiTietHoaDon.sanpham.MaHang,
                     SoLuong = chiTietHoaDon.SoLuong,
-                    ThanhTien = chiTietHoaDon.SanPham.GiaBan*chiTietHoaDon.SoLuong,
+                    ThanhTien = chiTietHoaDon.sanpham.GiaBan*chiTietHoaDon.SoLuong,
                 };
 
                 db.ChiTietHoaDons.Add(entity);

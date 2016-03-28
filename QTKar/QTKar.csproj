@@ -125,11 +125,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChiTietHoaDonController.cs" />
-    <Compile Include="Controllers\GridController.cs" />
     <Compile Include="Controllers\HoaDonsController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\PhongController.cs" />
-    <Compile Include="Models\ProductService.cs" />
+    <Compile Include="Models\NhomViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

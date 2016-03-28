@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,10 +17,23 @@ namespace QTKar.Admin
         private KaraokeDBEntities2 db = new KaraokeDBEntities2();
 
         public ActionResult Index()
-        {            
+        {
             return View();
         }
 
+        public ActionResult ToolbarTemplate_Nhoms()
+        {
+
+            //var nhoms = new SelectList(db.Nhoms, "MaNhom", "TenNhom");
+                        var nhoms = db.Nhoms
+            .Select(c => new NhomViewModel
+            {
+                MaNhom = c.MaNhom,
+                TenNhom = c.TenNhom
+            })
+            .OrderBy(e => e.MaNhom);
+            return Json(nhoms, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult SanPhams_Read([DataSourceRequest]DataSourceRequest request)
         {
             //ViewData["nhoms"] =
@@ -33,20 +46,21 @@ namespace QTKar.Admin
             //        .OrderBy(e => e.MaNhom);
             ViewData["MaNhom"] = new SelectList(db.Nhoms, "MaNhom", "TenNhom");
             IQueryable<SanPham> sanphams = db.SanPhams;
-            DataSourceResult result = sanphams.ToDataSourceResult(request, sanPham => new {
+            DataSourceResult result = sanphams.ToDataSourceResult(request, sanPham => new
+            {
                 MaHang = sanPham.MaHang,
-                MaNhom =sanPham.MaNhom,                
+                MaNhom = sanPham.MaNhom,
                 TenHang = sanPham.TenHang,
                 GiaBan = sanPham.GiaBan,
             });
 
             return Json(result);
         }
-        
+
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult SanPhams_Create([DataSourceRequest]DataSourceRequest request, SanPham sanPham)
         {
-            
+
 
             if (ModelState.IsValid)
             {
