@@ -14,7 +14,7 @@
 @*Panel Hoa Don*@
 <div class="x_panel">
     <div class="x_title">
-        <h2>Hoa Don</h2>
+        <h2>Hoa Don @Model.Phong.TenPhong</h2>
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -39,26 +39,57 @@
 
         <div class="x_content" style="display: block;">
 
-        <span class="label label-default">Ma Phong: @Model.MaPhong</span>
+      
         <br />
-        Gio vao: @(Html.Kendo().TimePicker()
-        .Name("Giovao")
-        .Value(Model.GioVao))
-        @*.Events(e =>
-        {
-        e.Change("change").Open("open").Close("close");
-        }))
+        Gio vao: @(Html.Kendo().TimePicker().Name("Giovao").Value(Model.GioVao).Events(e => e.Change("change")))        
         <script>   
 
     function change() {
         //kendoConsole.log("Change :: " + kendo.toString(this.value(), 'g'));
-        alert(this.value());
+        //alert(this.value());
+        //$.ajax({})
     }
-        </script>*@
+        </script>
 
-        @ViewBag.mahoadon=@Model.MaHoaDon
-@Html.Action("GridChiTietHoaDonPartial", "Grid",11);
+        
+@*@Html.Action("GridChiTietHoaDonPartial", "ChiTietHoaDon", new { maHoaDon = Model.MaHoaDon });*@
 
             
+@(Html.Kendo().Grid<ChiTietHoaDonViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          //columns.Bound(c => c.sanpham.TenHang);
+      
+          columns.Bound(c => c.SoLuong);
+          //columns.Bound(c => c.sanpham.GiaBan);
+          columns.Bound(c => c.ThanhTien);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create().Text(" Create New");
+          toolbar.Save();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InCell))
+      .Pageable()
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Scrollable().HtmlAttributes(new { style = "height:550px;" })
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Batch(true)
+          .ServerOperation(false)
+          .Model(model => model.Id(p => p.MaChiTietHoaDon))
+          .Read(read => read.Action("ChiTietHoaDons_Read", "ChiTietHoaDon", new { maHoaDon = Model.MaHoaDon }))
+          .Create(create => create.Action("ChiTietHoaDons_Create", "ChiTietHoaDon"))
+          .Update(update => update.Action("ChiTietHoaDons_Update", "ChiTietHoaDon"))
+          .Destroy(destroy => destroy.Action("ChiTietHoaDons_Destroy", "ChiTietHoaDon"))
+      )
+)
+
     </div>
 </div>

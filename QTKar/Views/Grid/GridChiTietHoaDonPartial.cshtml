@@ -1,20 +1,20 @@
 ﻿@using QTKar.Models
-@model List<ChiTietHoaDonViewModel>
+@model IEnumerable<ChiTietHoaDonViewModel>
 @{
     Layout = null;
 }
-
-@(Html.Kendo().Grid(Model)
+   
+    @(Html.Kendo().Grid(Model)
     .Name("grid")
     .Columns(columns =>
     {
-        columns.Bound(p => p.SanPham.TenHang);
+        columns.Bound(p => p.TenSanPham);
         columns.Bound(p => p.SoLuong).Width(120);
         columns.Bound(p => p.ThanhTien).Width(120);
-        //columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
     })
-    //.ToolBar(toolbar => toolbar.Create())
-    //.Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
     .Pageable()
     .Sortable()
     .Scrollable()
@@ -23,13 +23,13 @@
         .Ajax()
         .PageSize(20)
         .Model(model => model.Id(p => p.MaChiTietHoaDon))
-        .ServerOperation(false))
-    //.Events(events => events.Error("error_handler"))
+    //.ServerOperation(false))
+    .Events(events => events.Error("error_handler"))
 
-    //.Create(update => update.Action("EditingPopup_Create", "Grid"))
+    .Create(update => update.Action("EditingPopup_Create", "Grid"))
     //.Read(read => read.Action("EditingPopup_Read", "Grid"))
-    //.Update(update => update.Action("EditingPopup_Update", "Grid"))
-    //.Destroy(update => update.Action("EditingPopup_Destroy", "Grid"))
+    .Update(update => update.Action("EditingPopup_Update", "Grid"))
+    .Destroy(update => update.Action("EditingPopup_Destroy", "Grid"))
     )
 )
 <script type="text/javascript">
